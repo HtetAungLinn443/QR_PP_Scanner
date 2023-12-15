@@ -8,11 +8,11 @@
 <style scoped>
 .backBtn {
   position: absolute;
-  left: 15px;
+  left: 10px;
   top: 70px;
   font-size: 25px;
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 5px;
   text-align: center;
 }
 </style>

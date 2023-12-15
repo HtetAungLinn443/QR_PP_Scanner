@@ -3,7 +3,7 @@
     <div class="text-container" style="height: 10vh">Profile</div>
     <div class="card">
       <div class="card-header">
-        <div class="col-12 mb-4">
+        <div class="col-12 my-4">
           <div
             class="text-center animate__animated animate__flipInX"
             style="overflow: hidden"

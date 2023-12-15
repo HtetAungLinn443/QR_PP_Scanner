@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-items-center">
-    <div class="">
+    <div>
       <div class="card shadow animate__animated animate__bounceIn">
         <div class="card-body d-flex flex-column align-items-center">
           <h1 class="fs-4 text-center">Htet Aung Linn</h1>
@@ -46,9 +46,6 @@
         </div>
       </div>
     </div>
-    <div class="loading" v-if="showLoading">
-      <l-cardio size="50" stroke="4" speed="2" color="#054"></l-cardio>
-    </div>
   </div>
 </template>
 
@@ -68,14 +65,8 @@ export default {
   components: {
     QrcodeVue,
   },
-  methods: {
-    toggleMenu() {
-      this.showLoading = true;
-      setTimeout(() => {
-        this.showLoading = false;
-      }, 2000);
-    },
-  },
+
+  methods: {},
 };
 </script>
 <style scoped>
