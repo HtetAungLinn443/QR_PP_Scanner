@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%" class="container">
-    <div class="text-container" style="height: 10vh">Profile</div>
+    <AnimateTitle>Profile</AnimateTitle>
     <div class="card">
       <div class="card-header">
         <div class="col-12 my-4">
@@ -28,43 +28,43 @@
         <div class="row">
           <!-- 1 -->
           <div class="col-md-6 my-1 animate__animated animate__backInUp">
-            <router-link
-              to="/profile/update"
+            <RouterLink
+              :to="{ name: 'updateProfile' }"
               class="d-flex justify-content-between btn btn-outline-secondary py-3"
             >
               <span>Update Profile</span>
               <i class="fa-solid fa-chevron-right"></i>
-            </router-link>
+            </RouterLink>
           </div>
           <!-- 2 -->
           <div class="col-md-6 my-1 animate__animated animate__backInUp">
-            <router-link
-              to="/"
+            <RouterLink
+              :to="{ name: 'connectAccount' }"
               class="d-flex justify-content-between btn btn-outline-secondary py-3"
             >
               <span>Connect Accounts</span>
               <i class="fa-solid fa-chevron-right"></i>
-            </router-link>
+            </RouterLink>
           </div>
           <!-- 3 -->
           <div class="col-md-6 my-1 animate__animated animate__backInUp">
-            <router-link
+            <RouterLink
               to="/"
               class="d-flex justify-content-between btn btn-outline-secondary py-3"
             >
               <span>Change Password</span>
               <i class="fa-solid fa-chevron-right"></i>
-            </router-link>
+            </RouterLink>
           </div>
           <!-- 4 -->
           <div class="col-md-6 my-1 animate__animated animate__backInUp">
-            <router-link
+            <RouterLink
               to="/"
               class="d-flex justify-content-between btn btn-outline-secondary py-3"
             >
               <span>What is New</span>
               <i class="fa-solid fa-chevron-right"></i>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -75,9 +75,10 @@
 
 <script>
 import BackBtn from "@/components/BackBtn.vue";
+import AnimateTitle from "@/components/AnimateTitle.vue";
 export default {
   name: "profilePage",
-  components: { BackBtn },
+  components: { BackBtn, AnimateTitle },
 };
 </script>
 

@@ -2,21 +2,23 @@
   <div class="d-flex justify-content-center align-items-center">
     <div>
       <div class="card shadow animate__animated animate__bounceIn">
-        <div class="card-body d-flex flex-column align-items-center">
-          <h1 class="fs-4 text-center">Htet Aung Linn</h1>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTcoK-dlbjL7C1eAPifV1gUs2n6ukUugyM-J5wFbSEptPEn7GCoJXnFXMDlp9SdP-JcIQ&usqp=CAU"
-            alt="User"
-            title="Htet Aung Linn"
-            class="img-thumbnail rounded-circle"
-            style="width: 40%; border: 3px solid #004454"
-          />
-        </div>
+        <RouterLink :to="{ name: 'profilePage' }">
+          <div class="card-body d-flex flex-column align-items-center">
+            <h1 class="fs-4 text-center text-dark">Htet Aung Linn</h1>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTcoK-dlbjL7C1eAPifV1gUs2n6ukUugyM-J5wFbSEptPEn7GCoJXnFXMDlp9SdP-JcIQ&usqp=CAU"
+              alt="User"
+              title="Htet Aung Linn"
+              class="img-thumbnail rounded-circle"
+              style="width: 40%; border: 3px solid #004454"
+            />
+          </div>
+        </RouterLink>
       </div>
       <div class="card my-3 shadow animate__animated animate__bounceIn">
         <h1 class="text-dark text-center m-0">Scan me</h1>
         <div class="card-body text-center">
-          <qrcode-vue
+          <QrcodeVue
             :value="value"
             :size="size"
             :background="background"

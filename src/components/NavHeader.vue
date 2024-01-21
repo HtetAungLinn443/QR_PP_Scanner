@@ -1,13 +1,17 @@
 <template>
   <nav class="navbar sticky-top bg-dark text-light" style="height: 60px">
     <div class="d-flex justify-space-between container">
-      <router-link to="/profile" style="background: none" @click="closeDrawer">
+      <RouterLink
+        :to="{ name: 'profilePage' }"
+        style="background: none"
+        @click="closeDrawer"
+      >
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTcoK-dlbjL7C1eAPifV1gUs2n6ukUugyM-J5wFbSEptPEn7GCoJXnFXMDlp9SdP-JcIQ&usqp=CAU"
           alt="Profile"
           class="profileImg"
         />
-      </router-link>
+      </RouterLink>
       <div class="menu">
         <button class="menuBtn" @click="toggleMenu">
           <i
@@ -22,26 +26,26 @@
           :class="{ menuListOpen: isMenuOpen }"
         >
           <div class="d-flex flex-column">
-            <router-link @click="toggleMenu" to="/">
+            <RouterLink @click="toggleMenu" :to="{ name: 'homePage' }">
               <i class="fa fa-home me-2"></i>
               Home
-            </router-link>
-            <router-link @click="toggleMenu" to="/account">
+            </RouterLink>
+            <RouterLink @click="toggleMenu" :to="{ name: 'accountPage' }">
               <i class="fa fa-user me-2"></i>
               Account
-            </router-link>
-            <router-link @click="toggleMenu" to="/contact">
+            </RouterLink>
+            <RouterLink @click="toggleMenu" :to="{ name: 'contactPage' }">
               <i class="fa fa-message me-2"></i>
               Contact
-            </router-link>
-            <router-link @click="toggleMenu" to="/about">
+            </RouterLink>
+            <RouterLink @click="toggleMenu" :to="{ name: 'aboutPage' }">
               <i class="fa fa-info me-3"></i>
               About
-            </router-link>
-            <router-link @click="toggleMenu" to="/logout">
+            </RouterLink>
+            <RouterLink @click="toggleMenu" to="/logout">
               <i class="fa-solid fa-right-from-bracket me-2"></i>
               Logout
-            </router-link>
+            </RouterLink>
           </div>
           <div class="text-center">
             <span style="font-size: 11px; font-style: italic"
@@ -136,7 +140,7 @@ nav {
   color: #000;
   cursor: pointer;
 }
-.router-link-active {
+.RouterLink-active {
   background-color: #898989;
   color: #000 !important;
 }

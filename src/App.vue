@@ -20,14 +20,14 @@ export default {
   created() {
     setTimeout(() => {
       this.showLoading = false;
-    }, 2000);
+    }, 1000);
   },
   watch: {
-    $route(to, from) {
+    $route() {
       this.showLoading = true;
       setTimeout(() => {
         this.showLoading = false;
-      }, 2000);
+      }, 1000);
     },
   },
 };
@@ -37,11 +37,12 @@ export default {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 body {
-  background-color: #fafafa;
   user-select: none !important;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e4e4e4, #6e77ee);
 }
 .card {
-  backdrop-filter: blur(10px) !important;
+  background: rgba(255, 255, 255, 0.282) !important;
 }
 .loading {
   position: absolute;
@@ -49,5 +50,12 @@ body {
   top: 50%;
   padding: 10px;
   transform: translate(-50%, -50%);
+}
+.form-control {
+  background: rgba(255, 255, 255, 0.282) !important;
+  color: #000;
+}
+.form-control:focus {
+  border-color: rgb(2, 204, 255);
 }
 </style>

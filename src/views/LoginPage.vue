@@ -1,12 +1,12 @@
 <template>
-  <div class="container bg-info">
-    <div
-      class="d-flex align-items-center justify-content-center"
-      style="height: 100vh"
-    >
-      <div style="width: 800px">
-        <h1 class="text-center text-light mb-5">Login Page</h1>
-        <div class="card">
+  <div
+    class="d-flex align-items-center justify-content-center"
+    style="height: 93vh"
+  >
+    <div class="">
+      <div style="min-width: 500px">
+        <AnimateTitle>Login Page</AnimateTitle>
+        <div class="card mx-3" style="text-align: center">
           <div class="card-body">
             <form>
               <div data-mdb-input-init class="form-outline mb-4">
@@ -41,8 +41,10 @@
 </template>
 
 <script>
+import AnimateTitle from "@/components/AnimateTitle.vue";
 export default {
   name: "loginPage",
+  components: { AnimateTitle },
 };
 </script>
 

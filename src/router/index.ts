@@ -4,7 +4,7 @@ import HomePage from "../views/HomePage.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "home",
+    name: "homePage",
     component: HomePage,
   },
   {
@@ -19,8 +19,13 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/profile/update",
-    name: "UpdateProfile",
+    name: "updateProfile",
     component: () => import("@/views/UpdateProfile.vue"),
+  },
+  {
+    path: "/connect/account",
+    name: "connectAccount",
+    component: () => import("@/views/ConnectAccount.vue"),
   },
   {
     path: "/contact",
@@ -31,6 +36,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/about",
     name: "aboutPage",
     component: () => import("@/views/AboutPage.vue"),
+  },
+  {
+    path: "/logout",
+    redirect: "/login",
   },
   {
     path: "/login",

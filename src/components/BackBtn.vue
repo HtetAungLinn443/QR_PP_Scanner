@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     <div class="backBtn" @click="backFun">
       <i class="fa-solid fa-arrow-left-long"></i>
     </div>
