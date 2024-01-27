@@ -1,16 +1,15 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center">
-    <div>
+  <div class="justify-content-center">
+    <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2">
       <div class="card shadow animate__animated animate__bounceIn">
         <RouterLink :to="{ name: 'profilePage' }">
           <div class="card-body d-flex flex-column align-items-center">
             <h1 class="fs-4 text-center text-dark">Htet Aung Linn</h1>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTcoK-dlbjL7C1eAPifV1gUs2n6ukUugyM-J5wFbSEptPEn7GCoJXnFXMDlp9SdP-JcIQ&usqp=CAU"
+              src="https://i.pinimg.com/236x/b0/3e/30/b03e30a36ea16afcb6fd230d0a966cbf.jpg"
               alt="User"
               title="Htet Aung Linn"
-              class="img-thumbnail rounded-circle"
-              style="width: 40%; border: 3px solid #004454"
+              class="img-thumbnail rounded-circle profileImage"
             />
           </div>
         </RouterLink>
@@ -40,7 +39,7 @@
             <i class="fa-brands fa-telegram" style="color: skyblue"></i>
           </a>
           <a href="#" @click="toggleMenu" title="Twitter">
-            <i class="fa-solid fa-x" style="color: black"></i>
+            <i class="fa-brands fa-x-twitter" style="color: black"></i>
           </a>
           <a href="#" @click="toggleMenu" title="Phone Number">
             <i class="fa-solid fa-phone" style="color: green"></i>
@@ -57,9 +56,9 @@ import QrcodeVue from "qrcode.vue";
 export default {
   data() {
     return {
-      value: "https://www.facebook.com/HtetAungLinn443/",
+      value: "https://www.youtube.com",
       size: 200,
-      background: "#fff",
+      background: "#ffffff00",
       foreground: "#000",
       showLoading: false,
     };
@@ -95,5 +94,22 @@ export default {
   top: 50%;
   padding: 10px;
   transform: translate(-50%, -50%);
+}
+.profileImage {
+  width: 160px;
+  height: 160px;
+  border: 3px solid #004454;
+  object-fit: cover;
+}
+@media (max-width: 345px) {
+  canvas {
+    width: 140px !important;
+    height: 140px !important;
+  }
+  .icon-rounded a {
+    height: 25px;
+    width: 25px;
+    font-size: 12px;
+  }
 }
 </style>

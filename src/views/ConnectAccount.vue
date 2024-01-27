@@ -8,11 +8,12 @@
             <div
               v-for="(socialMedia, index) in socialMediaList"
               :key="index"
-              class="col-lg-4 col-md-6 my-2"
+              class="col-lg-4 col-md-6 my-2 animate__animated animate__flipInX"
             >
               <RouterLink
                 :to="'/connect/' + socialMedia.route"
                 class="d-flex justify-content-between align-items-center btn btn-outline-dark py-3"
+                :title="socialMedia.name"
               >
                 <span style="font-weight: 900; text-transform: capitalize">{{
                   socialMedia.name
@@ -41,6 +42,13 @@ export default {
     return {
       socialMediaList: [
         {
+          name: "Phone",
+          color: "",
+          iconClass: "fa-solid fa-phone",
+          iconStyle: { color: "#fff", background: "skyblue" },
+          route: "phone",
+        },
+        {
           name: "Facebook",
           color: "",
           iconClass: "fa-brands fa-facebook-f",
@@ -52,6 +60,7 @@ export default {
           color: "#00B2FF",
           iconClass: "fa-brands fa-facebook-messenger",
           iconStyle: { color: "#fff", background: "#00B2FF" },
+          route: "messenger",
         },
         {
           name: "Instagram",
@@ -67,15 +76,9 @@ export default {
           color: "",
           iconClass: "fa-brands fa-whatsapp",
           iconStyle: { background: "#5ffc7b", color: "#fff" },
-          route: "whatsapp",
+          route: "whatapp",
         },
-        {
-          name: "X (Twitter)",
-          color: "",
-          iconClass: "fa-brands fa-x-twitter",
-          iconStyle: { background: "#000" },
-          route: "twitter",
-        },
+
         {
           name: "TikTok",
           color: "",
@@ -85,12 +88,13 @@ export default {
           route: "tiktok",
         },
         {
-          name: "You Tube",
+          name: "YouTube",
           color: "",
-          iconClass: "fa-brands fa-youtube ",
+          iconClass: "fa-brands fa-youtube",
           iconStyle: { color: "#fff", background: "red" },
           route: "youtube",
         },
+
         {
           name: "Viber",
           color: "",
@@ -113,11 +117,18 @@ export default {
           route: "discord",
         },
         {
-          name: "We Chat",
+          name: "X (Twitter)",
+          color: "",
+          iconClass: "fa-brands fa-x-twitter",
+          iconStyle: { background: "#000" },
+          route: "twitter",
+        },
+        {
+          name: "WeChat",
           color: "",
           iconClass: "fa-brands fa-weixin",
           iconStyle: { color: "#fff", background: "#09b83e" },
-          route: "linkin",
+          route: "wechat",
         },
         {
           name: "Spotify",

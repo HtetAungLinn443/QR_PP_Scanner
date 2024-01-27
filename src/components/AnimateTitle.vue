@@ -20,6 +20,7 @@ export default {
   background-image: url("../../public/img/bg.webp");
   background-clip: text;
   background-repeat: repeat;
+  font-size: 40px;
   color: transparent;
   width: 100%;
   animation: moveBackground 10s linear infinite;

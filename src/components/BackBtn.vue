@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="backBtn" @click="backFun">
+    <div class="backBtn" @click="this.$router.go(-1)">
       <i class="fa-solid fa-arrow-left-long"></i>
     </div>
   </div>
@@ -19,10 +19,5 @@
 <script>
 export default {
   name: "backBtn",
-  methods: {
-    backFun() {
-      this.$router.go(-1);
-    },
-  },
 };
 </script>

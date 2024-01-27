@@ -11,6 +11,7 @@
             <img
               src="https://i.pinimg.com/236x/b0/3e/30/b03e30a36ea16afcb6fd230d0a966cbf.jpg"
               class="profileImg"
+              title="Profile"
             />
           </div>
           <div class="text-center">
@@ -79,30 +80,14 @@ import AnimateTitle from "@/components/AnimateTitle.vue";
 export default {
   name: "profilePage",
   components: { BackBtn, AnimateTitle },
+  created() {
+    const token = localStorage.getItem("authToken");
+    console.log(token);
+  },
 };
 </script>
 
 <style>
-.text-container {
-  position: relative;
-  font-size: 50px;
-  text-align: center;
-  font-weight: 900;
-  background-image: url("../../public/img/bg.webp");
-  background-clip: text;
-  background-repeat: repeat;
-  color: transparent;
-  width: 100%;
-  animation: moveBackground 10s linear infinite;
-}
-@keyframes moveBackground {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
 .profileImg {
   width: 200px;
   height: 200px;
@@ -110,14 +95,12 @@ export default {
   border-radius: 50%;
   padding: 2px;
   background-size: cover;
+  object-fit: cover;
 }
 @media (max-width: 768px) {
   .profileImg {
     width: 130px;
     height: 130px;
-  }
-  .text-container {
-    animation: moveBackground 3s linear infinite !important;
   }
 }
 </style>

@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-center">
           <img
             class="img-thumbnail"
-            style="width: 300px; height: 300px"
+            style="width: 300px; height: 300px; object-fit: cover"
             :src="selectedImage"
             :alt="selectedImage"
             title="Profile"
@@ -178,5 +178,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

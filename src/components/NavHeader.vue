@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky-top bg-dark text-light" style="height: 60px">
+  <nav class="navbar fixed-top bg-dark text-light" style="height: 60px">
     <div class="d-flex justify-space-between container">
       <RouterLink
         :to="{ name: 'profilePage' }"

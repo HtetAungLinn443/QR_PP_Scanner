@@ -16,6 +16,15 @@ export default {
       require: true,
     },
   },
+  mounted() {
+    // Access the current URL using window.location.href
+    const currentUrl = window.location.href;
+    console.log("Current URL:", currentUrl);
+
+    // If you are using Vue Router, you can access the route information
+    // const currentRoute = this.$route;
+    // console.log("Current Route:", currentRoute);
+  },
 };
 </script>
 
