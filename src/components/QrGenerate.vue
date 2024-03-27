@@ -4,11 +4,11 @@
       <div class="card shadow animate__animated animate__bounceIn">
         <RouterLink :to="{ name: 'profilePage' }">
           <div class="card-body d-flex flex-column align-items-center">
-            <h1 class="fs-4 text-center text-dark">Htet Aung Linn</h1>
+            <h1 class="fs-4 text-center text-dark">{{ userData.name }}</h1>
             <img
-              src="https://i.pinimg.com/236x/b0/3e/30/b03e30a36ea16afcb6fd230d0a966cbf.jpg"
-              alt="User"
-              title="Htet Aung Linn"
+              :src="userData.image"
+              :alt="userData.name"
+              :title="userData.name"
               class="img-thumbnail rounded-circle profileImage"
             />
           </div>
@@ -52,21 +52,31 @@
 
 <script>
 import QrcodeVue from "qrcode.vue";
-
+import $axios from "@/plugins/axios";
 export default {
   data() {
     return {
-      value: "https://www.youtube.com",
+      value: "",
       size: 200,
       background: "#ffffff00",
       foreground: "#000",
       showLoading: false,
+      userData: {},
     };
   },
   components: {
     QrcodeVue,
   },
 
+  async created() {
+    let user = localStorage.getItem("user");
+
+    const res = await $axios.get("/user", {
+      params: { id: user.id, email: user.email },
+    });
+    this.userData = res.data;
+    this.value = res.data.scan_code;
+  },
   methods: {},
 };
 </script>

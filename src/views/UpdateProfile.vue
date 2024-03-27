@@ -170,7 +170,6 @@ export default {
         true
       );
       if (!this.usernameError && !this.emailError && !this.imageError) {
-        // Validation passed, you can proceed with your form submission logic.
         console.log(this.formData);
       }
     },

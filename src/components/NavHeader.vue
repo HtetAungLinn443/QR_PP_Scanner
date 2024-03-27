@@ -42,7 +42,7 @@
               <i class="fa fa-info me-3"></i>
               About
             </RouterLink>
-            <RouterLink @click="toggleMenu" to="/logout">
+            <RouterLink @click="logoutFun" to="/logout">
               <i class="fa-solid fa-right-from-bracket me-2"></i>
               Logout
             </RouterLink>
@@ -76,6 +76,9 @@ export default {
     },
     closeDrawer() {
       this.isMenuOpen = false;
+    },
+    logoutFun() {
+      localStorage.removeItem("authToken");
     },
   },
   mounted() {

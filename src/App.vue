@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div v-if="shouldShowContent">
+    <div>
       <NavHeader v-if="shouldShowNavHeader" />
-      <router-view v-if="!showLoading" class="pt-5" />
-      <div class="loading" v-else>
-        <l-cardio size="50" stroke="4" speed="1.5" color="#000"></l-cardio>
+      <div class="">
+        <router-view class="pt-5" />
+        <div class="loading" v-if="isLoading">
+          <l-cardio size="50" stroke="4" speed="1.5" color="#000"></l-cardio>
+        </div>
       </div>
     </div>
   </div>
@@ -12,35 +14,29 @@
 
 <script>
 import NavHeader from "@/components/NavHeader.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "App",
   components: { NavHeader },
   data() {
     return {
-      showLoading: true,
       isAuthenticated: false,
     };
   },
   computed: {
+    ...mapGetters(["isLoading"]),
     shouldShowNavHeader() {
-      return !this.showLoading && this.$route.name !== "loginPage";
+      return !this.isLoading && this.$route.name !== "loginPage";
     },
     shouldShowContent() {
-      return (
-        !this.showLoading &&
-        (this.isAuthenticated || this.$route.name === "loginPage")
-      );
+      return this.isAuthenticated || this.$route.name === "loginPage";
     },
   },
   mounted() {
     this.checkAuthentication();
   },
-  created() {
-    setTimeout(() => {
-      this.showLoading = false;
-    }, 1000);
-  },
+
   methods: {
     checkAuthentication() {
       const token = localStorage.getItem("authToken");
@@ -48,12 +44,12 @@ export default {
     },
   },
   watch: {
-    $route() {
-      this.showLoading = true;
-      setTimeout(() => {
-        this.showLoading = false;
-      }, 1000);
-    },
+    // $route() {
+    //   this.isLoading = true;
+    //   setTimeout(() => {
+    //     this.isLoading = false;
+    //   }, 1000);
+    // },
   },
 };
 </script>
@@ -76,6 +72,13 @@ body {
   top: 50%;
   padding: 10px;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  background: #6e77ee;
 }
 .form-control {
   background: #ffffff48 !important;

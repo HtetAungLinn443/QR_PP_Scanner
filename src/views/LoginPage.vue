@@ -52,6 +52,8 @@
 
 <script>
 import AnimateTitle from "@/components/AnimateTitle.vue";
+import { mapActions, mapGetters } from "vuex";
+import $axios from "@/plugins/axios";
 export default {
   name: "loginPage",
   components: { AnimateTitle },
@@ -63,21 +65,34 @@ export default {
       passwordError: "",
     };
   },
-  mounted() {
-    localStorage.removeItem("authToken");
+  computed: {
+    // ...mapGetters("login/auth", []),
   },
   methods: {
-    submit() {
-      this.emailError = this.validateField(this.email, "Email", 3, true);
-      this.passwordError = this.validateField(this.password, "Password", 3);
+    ...mapActions(["fetchLogin"]),
+    async submit() {
+      this.emailError = this.validateField(this.email, "Email", 5, true);
+      this.passwordError = this.validateField(this.password, "Password", 7);
       if (!this.emailError && !this.passwordError) {
-        if (this.email === "user@gmail.com" && this.password === "password") {
-          // Successful login
-          const authToken = "your_generated_token";
-          localStorage.setItem("authToken", authToken);
-          this.$router.push("/home");
-        } else {
-          this.showErrorToast();
+        try {
+          const response = await $axios.post("/login", {
+            email: this.email,
+            password: this.password,
+          });
+          if (response.status === 200) {
+            console.log(response.data);
+            localStorage.setItem("authToken", response.data.token);
+            localStorage.setItem("user", JSON.stringify(response.data.data));
+            this.$router.push("/home");
+          }
+        } catch (error) {
+          if (error.response.status === 401) {
+            this.showErrorToast("Wrong Credential!");
+          } else if (error.response.status === 500) {
+            this.showErrorToast("Internal Server error!");
+          } else {
+            this.showErrorToast("Login Fail. Try again login!");
+          }
         }
       }
     },
@@ -92,7 +107,7 @@ export default {
         return "";
       }
     },
-    showErrorToast() {
+    showErrorToast(message) {
       const Toast = this.$swal.mixin({
         toast: true,
         position: "top-end",
@@ -102,7 +117,7 @@ export default {
       });
       Toast.fire({
         icon: "error",
-        title: "Invalid login credentials",
+        title: `${message}`,
       });
     },
   },
